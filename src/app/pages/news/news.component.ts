@@ -83,8 +83,8 @@ export class NewsComponent implements OnInit {
   ngOnInit(): void {
 
    this.dataForm = new FormGroup({
-    country: new FormControl('', [Validators.required]),
-    category: new FormControl('', [Validators.required]),
+    country: new FormControl('mx', [Validators.required]), 
+    category: new FormControl('business', [Validators.required]),
     });
 
     this.dataForm.get('country').valueChanges.subscribe((val: string) => {
