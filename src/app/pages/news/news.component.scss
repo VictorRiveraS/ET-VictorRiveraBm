@@ -1,0 +1,77 @@
+.noticias {
+    width: auto;
+    height: 912;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.noticias-articulos {
+    height: 912px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.newsCards {
+    width: 312px;
+    height: 320px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.newsCards img {
+    width: 312px;
+    height: 192px;
+    object-fit: contain;
+}
+
+.newsCards h3 {
+    width: 280px;
+    height: 25px;
+    font-family: Avenir;
+    font-size: 18px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #3a3a3a;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.newsCards h2 {
+    width: 312px;
+    height: 19px;
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.newsCards p {
+    width: 278px;
+    height: 38px;
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #999999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

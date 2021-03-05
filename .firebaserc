@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "et-victorriverabm": {
+      "hosting": {
+        "ET-VictorRiveraBm": [
+          "et-victorriverabm"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "et-victorriverabm"
+  }
+}

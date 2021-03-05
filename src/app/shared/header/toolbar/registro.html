@@ -1,0 +1,61 @@
+<div class="registro">
+    <div class="registroText">
+        <div class="title">
+            <a mat-dialog-close (click)="cerrar()">
+
+            </a>
+            <div class="tituloImagen">
+                <img src="../../../../assets/woolworth@3x.png" alt="iCarantyLogo">
+            </div>
+            <h1 class="registroEncabezado">Crea tu cuenta para disfrutar nuestros beneficios</h1>
+            <h3>¡Tu seguridad y tranqulidad es lo más importante! Toda la información y documentación </h3>
+            <h3>que nos proporcionas será confidencial y nadie tendrá acceso a ella</h3>
+        </div>
+        <div class="registroSingup">
+            <h3>¿Ya tienes una cuenta? </h3> &nbsp; <a class="textosVerdes" (click)="abrirSesion()">Iniciar sesión</a>
+        </div>
+    </div>
+    <form [formGroup]="registrarse" (ngSubmit)="registro(registrarse.value,registrarse.value)">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombres" type="text" required placeholder="Nombre(s)">
+            <mat-error *ngIf="registrarse.get('nombres').hasError('required')">Nombre(s) Requerido</mat-error>
+        </mat-form-field>
+        <div class="registroForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Primer Apellido</mat-label>
+                <input matInput formControlName="primerApellido" type="text" required placeholder="Primer Apellido">
+                <mat-error *ngIf="registrarse.get('primerApellido').hasError('required')">Primer Apellido Requerido</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Segundo Apellido</mat-label>
+                <input matInput formControlName="segundoApellido" type="text" required placeholder="Segundo Apellido">
+                <mat-error *ngIf="registrarse.get('segundoApellido').hasError('required')">Segundo Apellido Requerido</mat-error>
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Correo</mat-label>
+            <input matInput formControlName="email" type="text" required placeholder="Correo electrónico">
+            <mat-error *ngIf="registrarse.get('email').hasError('email')">Correo Invalido</mat-error>
+            <mat-error *ngIf="registrarse.get('email').hasError('required')">Correo Requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>celular</mat-label>
+            <input matInput formControlName="celular" type="text" required placeholder="Número celular">
+            <mat-error *ngIf="registrarse.get('celular').hasError('minlength') && !registrarse.get('celular').hasError('pattern')">Celular minimo de 10 números</mat-error>
+            <mat-error *ngIf="registrarse.get('celular').hasError('required')">Celular Requerido</mat-error>
+            <mat-error *ngIf="registrarse.get('celular').hasError('pattern')">Solo números en Celular</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="registrarse.get('password').hasError('minlength')">Contraseña minima de 8 caracteres</mat-error>
+            <mat-error *ngIf="registrarse.get('password').hasError('required')">Contraseña Requerido</mat-error>
+
+        </mat-form-field>
+        <div mat-dialog-actions>
+            <button type="submit" class="botonesVerdes" mat-button>Registrarse</button>
+        </div>
+    </form>
+</div>

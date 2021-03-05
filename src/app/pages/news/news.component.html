@@ -1,0 +1,60 @@
+<app-toolbar></app-toolbar>
+<div class="noticias">
+    <form [formGroup]="dataForm">
+        <mat-form-field>
+            <mat-select formControlName="country">
+                <mat-option *ngFor="let country of contries" [value]="country?.id">{{country?.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <div class="noticias-articulos">
+        <div class="newsCards" *ngFor="let article of noticias?.articles">
+            <mat-card>
+                <a href="{{article.url}}">
+                    <img matCardImage src="{{article.urlToImage}}">
+                    <mat-card-content>
+                        <h3>
+                            {{article.title}}
+                        </h3>
+                        <h2>
+                            Publicado: {{article.publishedAt}}
+                        </h2>
+                        <p>
+                            {{article.description}}
+                            <br> Por: {{article.source.name}}
+                        </p>
+                    </mat-card-content>
+                    <mat-card-footer>
+                        <p>
+                            Por: {{article.source.name}}
+                        </p>
+                    </mat-card-footer>
+                </a>
+            </mat-card>
+        </div>
+    </div>
+
+
+    <!-- <div class="noticias-articulos">
+        <div class="newsCards" *ngFor="let article of noticias?.articles">
+
+            <img src="{{article.urlToImage}}">
+            <h3>
+                {{article.title}}
+            </h3>
+            <h2>
+                Publicado: {{article.publishedAt}}
+            </h2>
+            <p>
+                {{article.description}}
+                <br> Por: {{article.source.name}}
+            </p>
+
+        </div>
+    </div> -->
+</div>

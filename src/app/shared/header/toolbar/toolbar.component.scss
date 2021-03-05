@@ -1,0 +1,50 @@
+.toolbar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    align-items: center;
+    .bambu-img {
+        width: 33%;
+        margin-left: 2.4%;
+        img {
+            height: 100%;
+            width: 168px;
+        }
+    }
+    .title-toolbar {
+        width: 33%;
+        height: 100%;
+        margin: 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login {
+        width: 33%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 2.4%;
+        .loginText {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            a {
+                width: auto;
+                height: auto;
+                text-decoration: none;
+            }
+            a:hover {
+                cursor: pointer;
+                opacity: 0.3;
+            }
+        }
+    }
+}
