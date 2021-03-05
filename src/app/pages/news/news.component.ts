@@ -10,8 +10,8 @@ import { ApiNoticiasService } from 'src/app/shared/services/api-noticias.service
 export class NewsComponent implements OnInit {
   public articles = [];
   public dataForm: any;
-  public pais: any = '';
-  public categoria: any = '';
+  public pais: any = 'mx';
+  public categoria: any = 'business';
   public noticias: any;
   contries = [
     { name: 'Argentina', id: 'ar', },
@@ -85,6 +85,10 @@ export class NewsComponent implements OnInit {
    this.dataForm = new FormGroup({
     country: new FormControl('mx', [Validators.required]), 
     category: new FormControl('business', [Validators.required]),
+    });
+
+    this.apiservice.getNoti(this.pais, this.categoria).subscribe((val) => {
+      this.noticias = val;
     });
 
     this.dataForm.get('country').valueChanges.subscribe((val: string) => {

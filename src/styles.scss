@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-dialog-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 15px !important;
+}
+
+.cdk-overlay-pane {
+    min-width: 50vw !important;
+    min-height: 10vh !important;
+    max-height: 90vh !important;
+}

@@ -1,77 +1,116 @@
 .news {
     width: auto;
-    height: 912;
+    height: auto;
     max-width: 1000px;
     margin: auto;
-}
-
-.noticias-articulos {
-    height: 912px;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.newsCards {
-    width: 312px;
-    height: 320px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-}
-
-.newsCards img {
-    width: 312px;
-    height: 192px;
-    object-fit: contain;
-}
-
-.newsCards h3 {
-    width: 280px;
-    height: 25px;
-    font-family: Avenir;
-    font-size: 18px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #3a3a3a;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.newsCards h2 {
-    width: 312px;
-    height: 19px;
-    font-family: OpenSans;
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #000000;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.newsCards p {
-    width: 278px;
-    height: 38px;
-    font-family: OpenSans;
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #999999;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    .formNews {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 48px;
+        mat-form-field {
+            border-radius: 4px;
+            border: solid 1px var(--light);
+            margin-right: 5%;
+            mat-select {
+                color: #0c3c4a;
+                mat-option {
+                    color: #0c3c4a;
+                }
+            }
+        }
+    }
+    .newsArticles {
+        height: 912px;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .newsCards {
+            mat-card {
+                width: 312px;
+                height: 320px;
+                padding: 0%;
+                border-radius: 12px;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                background-color: var(--white);
+                a {
+                    text-decoration: none;
+                    .imgCard {
+                        margin-top: 4%;
+                        width: 100%;
+                        height: 56%;
+                        object-fit: contain;
+                        border-radius: 12px;
+                    }
+                    mat-card-content {
+                        width: 92%;
+                        height: 20%;
+                        margin: 0% 4%;
+                        h3 {
+                            width: 100%;
+                            height: auto;
+                            margin: 5% 0%;
+                            font-family: Avenir;
+                            font-size: 18px;
+                            font-weight: 900;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            color: #3a3a3a;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                        h2 {
+                            width: 100%;
+                            height: auto;
+                            margin: 5% 0%;
+                            font-family: OpenSans;
+                            font-size: 14px;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            color: #000000;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                    mat-card-footer {
+                        width: 92%;
+                        margin: 0% 4%;
+                        height: 10%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        p {
+                            width: 100%;
+                            height: auto;
+                            margin: 0%;
+                            font-family: OpenSans;
+                            font-size: 14px;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: normal;
+                            letter-spacing: normal;
+                            color: #999999;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+                a:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }

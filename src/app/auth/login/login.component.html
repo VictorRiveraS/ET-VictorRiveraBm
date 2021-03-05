@@ -3,37 +3,40 @@
 <div class="login">
     <div class="loginText">
         <div class="title">
-            <a mat-dialog-close (click)="cerrar()">
+            <a mat-dialog-close (click)="closeWdw()">
+                <mat-icon>close</mat-icon>
             </a>
-            <div class="tituloImagen">
+            <div class="titleImg">
                 <img src="../../../../assets/woolworth@3x.png" alt="Bambu-Logo">
             </div>
         </div>
-        <h1 class="loginEncabezado">Inicia sesión</h1>
-        <h2>descubre todos nuestros beneficios</h2>
+        <h1 class="loginHeader">Inicia sesión</h1>
+        <h2>Descubre todas nuestas noticias</h2>
         <div class="loginSingup">
-            <h3>¿Aún no tienes una cuenta? </h3> &nbsp; <a class="textosVerdes" (click)="abrirRegistro()">Registrate</a>
+            <h3>¿Aún no tienes una cuenta? </h3> &nbsp; <a class="textosVerdes" (click)="openRegister()">Registrate</a>
         </div>
     </div>
     <div class="formLogin">
-        <form [formGroup]="acceso" (ngSubmit)="logueo(acceso.value)">
+        <form [formGroup]="access" (ngSubmit)="login(access.value)">
             <mat-form-field appearance="outline">
                 <mat-label>Correo Electrónico </mat-label>
-                <input matInput formControlName="email" type="text" placeholder="Correo" required>
+                <input matInput formControlName="email" type="text" placeholder="Exejemplo@ejemplo.com" required>
+                <mat-error *ngIf="access.get('email').hasError('required') && !this.errorEmail">Correo Requerido</mat-error>
             </mat-form-field>
             <p *ngIf="this.errorEmail">{{this.errorEmail}}</p>
             <mat-form-field appearance="outline">
                 <mat-label>Contraseña</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Contraseña" required>
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="access.get('password').hasError('required') && !this.errorPassword">Password Requerido</mat-error>
             </mat-form-field>
             <p *ngIf="this.errorPassword">{{this.errorPassword}}</p>
-            <p *ngIf="acceso.get('password').hasError('minlength')">La contraseña debe tener almenos {{minPw}} caracteres</p>
+            <p *ngIf="access.get('password').hasError('minlength')">La contraseña debe tener almenos {{minPw}} caracteres</p>
             <div class="loginForget">
-                <a (click)="abrirOlvidada()">¿Olvidaste la contraseña?</a>
+                <a (click)="openReset()">¿Olvidaste la contraseña?</a>
             </div>
             <div mat-dialog-actions>
-                <button type="submit" class="botonesVerdes" mat-button>Iniciar sesión</button>
+                <button type="submit" class="botonesVerdes" mat-button [disabled]="!access.valid">Iniciar sesión</button>
             </div>
         </form>
     </div>

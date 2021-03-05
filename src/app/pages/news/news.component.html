@@ -1,6 +1,6 @@
 <app-toolbar></app-toolbar>
 <div class="news">
-    <form [formGroup]="dataForm">
+    <form [formGroup]="dataForm" class="formNews">
         <mat-form-field>
             <mat-select formControlName="country">
                 <mat-option *ngFor="let country of contries" [value]="country?.id">{{country?.name}}</mat-option>
@@ -12,11 +12,11 @@
             </mat-select>
         </mat-form-field>
     </form>
-    <div class="noticias-articulos">
+    <div class="newsArticles">
         <div class="newsCards" *ngFor="let article of noticias?.articles">
             <mat-card>
                 <a href="{{article.url}}">
-                    <img matCardImage src="{{article.urlToImage}}">
+                    <img class="imgCard" src="{{article.urlToImage}}">
                     <mat-card-content>
                         <h3>
                             {{article.title}}
@@ -24,12 +24,11 @@
                         <h2>
                             Publicado: {{article.publishedAt}}
                         </h2>
-                        <p>
-                            {{article.description}}
-                            <br> Por: {{article.source.name}}
-                        </p>
                     </mat-card-content>
                     <mat-card-footer>
+                        <p>
+                            {{article.description}}
+                        </p>
                         <p>
                             Por: {{article.source.name}}
                         </p>

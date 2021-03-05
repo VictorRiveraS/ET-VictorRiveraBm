@@ -3,28 +3,29 @@
     height: 100%;
 }
 
-.olvidada {
+.forget {
     width: 100%;
     height: 100%;
     margin: 0;
     color: #000;
     background-color: #fff;
-    .olvidadaText {
+    .forgetText {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: auto;
         width: 100%;
-        .cerrar {
+        .close {
             width: 100%;
             height: 20px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
             a {
-                i {
+                mat-icon {
                     font-size: 1.5em;
+                    color: rgb(139, 140, 140);
                 }
             }
             a:hover {
@@ -33,7 +34,7 @@
             }
         }
         img {
-            height: 35px;
+            height: 80px;
             width: auto;
             margin: 10px;
         }
@@ -43,7 +44,7 @@
             margin: 10px;
         }
     }
-    .olvidadaSingup {
+    .forgetSingup {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -55,25 +56,25 @@
             margin: 5px;
         }
     }
-    .olvidadaSingup a:hover {
+    .forgetSingup a:hover {
         cursor: pointer;
         opacity: 0.9;
     }
 }
 
-.olvidadaLogin {
+.forgetLogin {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     a {
         font-size: 0.9em;
-        color: rgb(91, 197, 0);
+        color: #0c3c4a;
         text-decoration: none;
     }
 }
 
-.olvidadaLogin a:hover {
+.forgetLogin a:hover {
     cursor: pointer;
     opacity: 0.9;
 }

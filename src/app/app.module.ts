@@ -5,9 +5,12 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { NewsComponent } from './pages/news/news.component';
-import { ToolbarComponent, Login, Olvidada, Registro, Reseteo } from './shared/header/toolbar/toolbar.component';
+import { ToolbarComponent } from './shared/header/toolbar/toolbar.component';
 import { NewsSinSesionComponent } from './pages/news-sin-sesion/news-sin-sesion.component';
-
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ForgetComponent } from './auth/forget/forget.component';
+import { ResetComponent } from './auth/reset/reset.component';
 
 /*Firebase*/
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -32,16 +35,17 @@ import { MatCardModule } from '@angular/material/card';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
     ToolbarComponent,
     NewsSinSesionComponent,
-    Registro,
-    Login,
-    Olvidada,
-    Reseteo,
+    LoginComponent,
+    RegisterComponent,
+    ForgetComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

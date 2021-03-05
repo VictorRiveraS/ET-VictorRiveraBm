@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiNoticiasService {
-  public apikey = '7700c5ef589e48d29bcaaaef6199f855'
+
   public apikey2 = 'b7eed13eea4a4a8e9714add4f1ffe56b'
   public country: any
   public category: any
@@ -18,4 +18,5 @@ export class ApiNoticiasService {
 
     return this.http.get(`https://newsapi.org/v2/top-headlines?${url}&apiKey=${this.apikey2}`);
   }
+  
 }
