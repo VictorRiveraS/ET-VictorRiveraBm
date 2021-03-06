@@ -1,22 +1,30 @@
 <app-toolbar></app-toolbar>
 <div class="news">
-    <form [formGroup]="dataForm" class="formNews">
-        <mat-form-field>
-            <mat-select formControlName="country">
-                <mat-option *ngFor="let country of contries" [value]="country?.id">{{country?.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-select formControlName="category">
-                <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </form>
+    <div class="newsFilters">
+        <form [formGroup]="dataForm" class="selectNews">
+            <mat-form-field>
+                <mat-select formControlName="country">
+                    <mat-option *ngFor="let country of contries" [value]="country?.id">{{country?.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="category">
+                    <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <form class="inputNews">
+            <mat-form-field>
+                <input matInput [(ngModel)]="filterArticle" name="arti" type="text" placeholder="Buscar por titulo de noticia">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </form>
+    </div>
     <div class="newsArticles">
-        <div class="newsCards" *ngFor="let article of noticias?.articles">
+        <div class="newsCards" *ngFor="let article of news?.articles | newsFilter:filterArticle">
             <mat-card>
-                <a href="{{article.url}}">
-                    <img class="imgCard" src="{{article.urlToImage}}">
+                <a href="{{article.url}} ">
+                    <img class="imgCard " src="{{article.urlToImage}} ">
                     <mat-card-content>
                         <h3>
                             {{article.title}}
@@ -37,23 +45,4 @@
             </mat-card>
         </div>
     </div>
-
-
-    <!-- <div class="noticias-articulos">
-        <div class="newsCards" *ngFor="let article of noticias?.articles">
-
-            <img src="{{article.urlToImage}}">
-            <h3>
-                {{article.title}}
-            </h3>
-            <h2>
-                Publicado: {{article.publishedAt}}
-            </h2>
-            <p>
-                {{article.description}}
-                <br> Por: {{article.source.name}}
-            </p>
-
-        </div>
-    </div> -->
 </div>

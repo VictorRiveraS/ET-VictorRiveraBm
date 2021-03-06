@@ -24,7 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatSelectModule } from '@angular/material/select'
-import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
+import { NewsFilterPipe } from './shared/pipes/news-filter.pipe'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatCardModule } from '@angular/material/card'
     LoginComponent,
     RegisterComponent,
     ForgetComponent,
-    ResetComponent
+    ResetComponent,
+    NewsFilterPipe
   ],
   imports: [
     BrowserModule,

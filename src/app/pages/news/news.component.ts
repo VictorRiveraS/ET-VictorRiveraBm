@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { ApiNoticiasService } from 'src/app/shared/services/api-noticias.service'
+import { ApiNoticiasService } from 'src/app/shared/services/api-noticias.service';
+
 
 @Component({
   selector: 'app-news',
@@ -10,10 +11,11 @@ import { ApiNoticiasService } from 'src/app/shared/services/api-noticias.service
 export class NewsComponent implements OnInit {
   public articles = [];
   public dataForm: any;
-  public pais: any = 'mx';
-  public categoria: any = 'business';
-  public noticias: any;
+  public country: any = 'mx';
+  public category: any = 'business';
+  public news: any;
   public edme: any;
+  public filterArticle: string = '';
 
   contries = [
     { name: 'Argentina', id: 'ar' },
@@ -88,21 +90,28 @@ export class NewsComponent implements OnInit {
       category: new FormControl('business', [Validators.required]),
     });
 
-    this.apiservice.getNoti(this.pais, this.categoria).subscribe((val) => {
-      this.noticias = val;
+    this.apiservice.getNoti(this.country, this.category).subscribe((val: any) => {
+      this.news = val;
     });
 
     this.dataForm.get('country').valueChanges.subscribe((val: string) => {
-      this.pais = val
-      this.apiservice.getNoti(this.pais, this.categoria).subscribe((val) => {
-        this.noticias = val;
+      this.country = val
+      this.apiservice.getNoti(this.country, this.category).subscribe((val: any) => {
+        this.news = val;
       });
     });
 
     this.dataForm.get('category').valueChanges.subscribe((val: string) => {
-      this.categoria = val
-      this.apiservice.getNoti(this.pais, this.categoria).subscribe((val) => {
-        this.noticias = val;
+      this.category = val
+      this.apiservice.getNoti(this.country, this.category).subscribe((val: any) => {
+        this.news = val;
+      });
+    });
+
+    this.dataForm.get('category').valueChanges.subscribe((val: string) => {
+      this.category = val
+      this.apiservice.getNoti(this.country, this.category).subscribe((val: any) => {
+        this.news = val;
       });
     });
   }
