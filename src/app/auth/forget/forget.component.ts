@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { LoginComponent } from '../login/login.component';
+import { Component, OnInit } from '@angular/core'
+import { MatDialog, MatDialogRef } from '@angular/material/dialog'
+import { LoginComponent } from '../login/login.component'
 
 @Component({
   selector: 'app-forget',
@@ -9,25 +8,22 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./forget.component.scss']
 })
 export class ForgetComponent implements OnInit {
+  constructor (private dialog: MatDialog,
+    private dialogRef: MatDialogRef<ForgetComponent>) { }
 
-  constructor(public dialog: MatDialog,
-    private dialogRef: MatDialogRef<ForgetComponent>,
-    private authServ: AuthService) { }
+  ngOnInit (): void { }
 
-  ngOnInit(): void { }
-
-  openSesion() {
-    this.dialogRef.close();
-    const dialogRef = this.dialog.open(LoginComponent, {
+  openSession () {
+    this.dialogRef.close()
+    this.dialog.open(LoginComponent, {
       height: 'auto',
       minHeight: '90vh',
       minWidth: '50vw',
-      width: 'auto',
-    });
+      width: 'auto'
+    })
   };
 
-  closeWdw(): void {
-    this.dialogRef.close();
+  closeWdw (): void {
+    this.dialogRef.close()
   };
-
 }

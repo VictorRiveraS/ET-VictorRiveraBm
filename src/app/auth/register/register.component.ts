@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RegisterI } from 'src/app/shared/interfaces/register.interface';
 import { UserI } from 'src/app/shared/interfaces/users.interface';
@@ -14,16 +14,15 @@ import { LoginComponent } from '../login/login.component';
 })
 export class RegisterComponent implements OnInit {
 
+  public hide = true;
+  public minPw = 8;
+  public minCel = 10;
+  public register: any;
+
   constructor(public dialog: MatDialog,
     private dialogRef: MatDialogRef<RegisterComponent>,
     private authServ: AuthService,
-    private regServ: StoreService,
-    private formBuilder: FormBuilder) { }
-
-  hide = true;
-  minPw = 8;
-  minCel = 10;
-  public register: any;
+    private regServ: StoreService) { }
 
   ngOnInit(): void {
 
@@ -48,7 +47,7 @@ export class RegisterComponent implements OnInit {
         .then(res => {
           this.regServ.salvarDatos(this.register.value)
           this.dialogRef.close();
-          const dialogRef = this.dialog.open(LoginComponent, {
+          this.dialog.open(LoginComponent, {
             height: 'auto',
             minHeight: '90vh',
             minWidth: '50vw',
@@ -58,9 +57,9 @@ export class RegisterComponent implements OnInit {
     }
   };
 
-  openSesion() {
+  openSession() {
     this.dialogRef.close();
-    const dialogRef = this.dialog.open(LoginComponent, {
+    this.dialog.open(LoginComponent, {
       height: 'auto',
       minHeight: '90vh',
       minWidth: '50vw',

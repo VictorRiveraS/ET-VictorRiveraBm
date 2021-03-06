@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
   }
 
   public access: any;
-  hide = true;
-  minPw = 8;
-  errorEmail: any;
-  errorPassword: any;
+  public hide = true;
+  public minPw = 8;
+  public errorEmail: any;
+  public errorPassword: any;
 
   login(form: UserI) {
     this.authServ.loginbyEmail(form)
@@ -68,9 +68,9 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  openRegister() {
+  openRegister() { 
     this.dialogRef.close();
-    const dialogRef = this.dialog.open(RegisterComponent, {
+    this.dialog.open(RegisterComponent, {
       height: 'auto',
       minHeight: '10vh', 
       minWidth: '50vw',
@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
 
   openReset() {
     this.dialogRef.close();
-    const dialogRef = this.dialog.open(ResetComponent, {
+    this.dialog.open(ResetComponent, {
       height: 'auto',
       minWidth: '70vw',
       minHeight: '50vh',

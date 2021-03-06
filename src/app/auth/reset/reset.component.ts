@@ -9,12 +9,12 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
-  styleUrls: ['./reset.component.scss']
+  styleUrls: ['./reset.component.scss'] 
 })
 export class ResetComponent implements OnInit {
 
-  reset: any;
-  errorEmail: any;
+  public reset: any;
+  public errorEmail: any;
   
   constructor(public dialog: MatDialog,
     private dialogRef: MatDialogRef<ResetComponent>,
@@ -32,7 +32,7 @@ export class ResetComponent implements OnInit {
     this.authServ.resetPassword(form)
       .then(res => {
         this.dialogRef.close();
-        const dialogRef = this.dialog.open(ForgetComponent, {
+        this.dialog.open(ForgetComponent, {
           height: 'auto',
           minHeight: '70vh',
           minWidth: '50vw',
@@ -61,9 +61,9 @@ export class ResetComponent implements OnInit {
       })
   };
 
-  openSesion() {
+  openSession() {
     this.dialogRef.close();
-    const dialogRef = this.dialog.open(LoginComponent, {
+    this.dialog.open(LoginComponent, {
       height: 'auto',
       minHeight: '90vh',
       minWidth: '50vw',

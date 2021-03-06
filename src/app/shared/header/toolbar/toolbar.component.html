@@ -5,7 +5,8 @@
     <h1 class="title-toolbar">Noticias</h1>
     <div class="login">
         <div class="loginText" *ngIf="!logout">
-            <a (click)="openSesion()">Ingresar</a>
+            <button mat-button (click)="openSession()">Ingresar</button>
         </div>
+        <div *ngIf="logout" (click)="onLogout()"> {{email}}<img src="../../../../assets/admin.svg" alt="User"></div>
     </div>
 </div>
