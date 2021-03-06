@@ -4,9 +4,15 @@
     </div>
     <h1 class="title-toolbar">Noticias</h1>
     <div class="login">
-        <div class="loginText" *ngIf="!logout">
-            <button mat-button (click)="openSession()">Ingresar</button>
+        <div class="user" *ngIf="authServ.userData | async as user; else showLogin" (click)="onLogout()">
+            <a>
+                <p>{{email}}</p><img src="../../../../assets/admin.svg" alt="User">
+            </a>
         </div>
-        <div *ngIf="logout" (click)="onLogout()"> {{email}}<img src="../../../../assets/admin.svg" alt="User"></div>
+        <ng-template #showLogin>
+            <div class="loginText">
+                <button mat-button (click)="openSession()">Ingresar</button>
+            </div>
+        </ng-template>
     </div>
 </div>

@@ -10,12 +10,20 @@
     .homeText {
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         h1 {
             font-size: 100px;
             color: #0c3c4a;
             font-family: sans-serif;
+            text-align: center;
+        }
+        h2 {
+            font-size: 50px;
+            color: #0c3c4a;
+            font-family: sans-serif;
+            text-align: center;
         }
     }
     .buttonHome {
@@ -34,5 +42,26 @@
             border: solid 2px #0c3c4a;
             border-radius: 6px;
         }
+    }
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 75px !important;
+    }
+    h2 {
+        font-size: 36.5px !important;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 50px !important;
+    }
+    h2 {
+        font-size: 25px !important;
+    }
+    button {
+        font-size: 11px;
     }
 }

@@ -36,13 +36,13 @@ export class LoginComponent implements OnInit {
 
   login(form: UserI) {
     this.authServ.loginbyEmail(form)
-      .then(res => {
+      .then((res: any) => {
         localStorage.setItem('email', this.access.get('email').value);
         localStorage.setItem('password', this.access.get('password').value);
         this.dialogRef.close();
         this.route.navigate(["/news"]);
       })
-      .catch(err => {
+      .catch((err: { code: string; }) => {
         let errores: string = err.code
         switch (errores) {
           case "auth/invalid-email":

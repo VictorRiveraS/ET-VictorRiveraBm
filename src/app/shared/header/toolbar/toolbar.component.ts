@@ -11,14 +11,15 @@ import { RegisterComponent } from 'src/app/auth/register/register.component'
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  public logout:boolean = false;
-  public email: any;
+    public email: any;
 
-  constructor (private authServ: AuthService,
+  constructor (public authServ: AuthService,
     private route: Router,
     private dialog: MatDialog) { }
 
-  ngOnInit (): void { }
+  ngOnInit (): void {
+    this.email = localStorage.getItem("email")
+  }
 
   openSession () {
     this.dialog.open(LoginComponent, {
