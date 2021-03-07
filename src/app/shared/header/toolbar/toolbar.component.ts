@@ -8,19 +8,19 @@ import { ResponsiveButtonComponent } from '../responsive-button/responsive-butto
 
 @Component({
   selector: 'app-toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss'],
+  templateUrl: './toolbar.component.html', 
+  styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
   public email: any;
 
   constructor (public authServ: AuthService,
     private route: Router,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog) {}
 
   ngOnInit (): void {
-    this.email = localStorage.getItem("email");
-  } 
+    this.email = localStorage.getItem('email');
+  }
 
   openSession () {
     this.dialog.open(LoginComponent, {
@@ -40,13 +40,13 @@ export class ToolbarComponent implements OnInit {
     });
   }
 
-  openResponsive() {
+  openResponsive () {
     this.dialog.open(ResponsiveButtonComponent, {
       height: '50vh',
       width: 'auto',
       position: {
         top: '0px',
-        right: '0px',
+        right: '0px'
       }});
   }
 
