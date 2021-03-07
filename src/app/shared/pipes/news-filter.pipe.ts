@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'newsFilter'
 })
 export class NewsFilterPipe implements PipeTransform {
-
   transform(value: any, arg: any): any {
     if (arg === "") return value;
     const resultArticle = [];
@@ -15,5 +14,4 @@ export class NewsFilterPipe implements PipeTransform {
     }
     return resultArticle;
   }
-
 }

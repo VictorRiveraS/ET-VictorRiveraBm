@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
-import { MatDialog, MatDialogRef } from '@angular/material/dialog'
-import { LoginComponent } from '../login/login.component'
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-forget',
   templateUrl: './forget.component.html',
-  styleUrls: ['./forget.component.scss']
+  styleUrls: ['./forget.component.scss'],
 })
 export class ForgetComponent implements OnInit {
   constructor (private dialog: MatDialog,
@@ -20,10 +20,10 @@ export class ForgetComponent implements OnInit {
       minHeight: '90vh',
       minWidth: '50vw',
       width: 'auto'
-    })
-  };
+    });
+  }
 
   closeWdw (): void {
-    this.dialogRef.close()
-  };
+    this.dialogRef.close();
+  }
 }

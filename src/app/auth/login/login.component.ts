@@ -10,7 +10,7 @@ import { ResetComponent } from '../reset/reset.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
 
@@ -20,12 +20,10 @@ export class LoginComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit(): void {
-
     this.access = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)])
     });
-
   }
 
   public access: any;
@@ -65,7 +63,7 @@ export class LoginComponent implements OnInit {
             this.errorEmail = "Error";
             break;
         }
-      })
+      });
   }
 
   openRegister() { 

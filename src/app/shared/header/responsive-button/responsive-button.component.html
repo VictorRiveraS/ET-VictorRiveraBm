@@ -1,0 +1,18 @@
+<div class="menuResponsive">
+    <div class="close">
+        <a mat-dialog-close (click)="closeWdw()">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+    <div class="menuBody">
+        <ul class="nav-menu">
+            <li class="user">
+                <p>{{email}}</p>
+                <mat-icon>account_circle</mat-icon>
+            </li>
+            <li class="user">
+                <a (click)="onLogout()">Salir</a>
+            </li>
+        </ul>
+    </div>
+</div>

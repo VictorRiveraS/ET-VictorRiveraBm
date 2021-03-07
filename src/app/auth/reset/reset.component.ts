@@ -9,10 +9,9 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
-  styleUrls: ['./reset.component.scss'] 
+  styleUrls: ['./reset.component.scss'],
 })
 export class ResetComponent implements OnInit {
-
   public reset: any;
   public errorEmail: any;
   
@@ -21,11 +20,9 @@ export class ResetComponent implements OnInit {
     private authServ: AuthService) { }
 
   ngOnInit(): void {
-
     this.reset = new FormGroup({
       email: new FormControl('', [Validators.required]),
     });
-
   }
 
   resetPassword(form: UserI) {
@@ -58,8 +55,8 @@ export class ResetComponent implements OnInit {
             this.errorEmail = "Error";
             break;
         }
-      })
-  };
+      });
+  }
 
   openSession() {
     this.dialogRef.close();
@@ -74,5 +71,4 @@ export class ResetComponent implements OnInit {
   closeWdw(): void {
     this.dialogRef.close();
   }
-
 }

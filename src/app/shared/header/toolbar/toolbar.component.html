@@ -2,11 +2,17 @@
     <div class="bambu-img">
         <img src="../../../assets/woolworth@3x.png" alt="Bambu">
     </div>
+    <div class="menu-btn-der">
+        <a (click)="openResponsive()">
+            <mat-icon>view_headline</mat-icon>
+        </a>
+    </div>
     <h1 class="title-toolbar">Noticias</h1>
     <div class="login">
         <div class="user" *ngIf="authServ.userData | async as user; else showLogin" (click)="onLogout()">
             <a>
-                <p>{{email}}</p><img src="../../../../assets/admin.svg" alt="User">
+                <p>{{email}}</p>
+                <mat-icon>account_circle</mat-icon>
             </a>
         </div>
         <ng-template #showLogin>

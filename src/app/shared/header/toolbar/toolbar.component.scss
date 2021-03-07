@@ -58,9 +58,10 @@
                     color: #636262;
                     margin-right: 5%;
                 }
-                img {
+                mat-icon {
                     height: 10%;
                     width: auto;
+                    color: #0c3c4a;
                 }
             }
             a:hover {
@@ -68,11 +69,25 @@
             }
         }
     }
+    .menu-btn-der {
+        cursor: pointer;
+        position: absolute;
+        top: 26px;
+        right: 30px;
+        display: none;
+        color: rgb(73, 73, 73);
+        font-size: 1.75em !important;
+    }
 }
 
 @media (max-width: 500px) {
     button {
-        font-size: 11px;
+        height: 30px !important;
+        display: flex !important;
+        align-items: center !important;
+        font-size: 11px !important;
+        padding: 0% !important;
+        justify-content: center;
     }
     .bambu-img {
         img {
@@ -82,5 +97,22 @@
     }
     .title-toolbar {
         font-size: 20px !important;
+    }
+    .user {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        width: 110vw !important;
+        height: 60vh !important;
+        border-right: #ccc 1px solid;
+        padding: 30px;
+        transform: translateY(-800px);
+        transition: transform 0.5s ease-in-out;
+        z-index: 3;
+    }
+    .menu-btn-der {
+        display: flex !important;
     }
 }

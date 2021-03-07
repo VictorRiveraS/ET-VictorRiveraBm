@@ -10,7 +10,7 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
 
@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
     private regServ: StoreService) { }
 
   ngOnInit(): void {
-
     this.register = new FormGroup({
       nombres: new FormControl('', [Validators.required]),
       primerApellido: new FormControl('', [Validators.required]),
@@ -34,13 +33,12 @@ export class RegisterComponent implements OnInit {
       celular: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(this.minCel)]),
       password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)])
     });
-
   }
 
   registerUser(form: UserI, form1: RegisterI) {
-    let celular1: string = form1.celular.toString()
-    let celular2: number = celular1.length
-    let celular3 = Number(form1.celular)
+    let celular1: string = form1.celular.toString();
+    let celular2: number = celular1.length;
+    let celular3 = Number(form1.celular);
 
     if (form1.nombres != "" && form1.primerApellido != "" && form1.segundoApellido != "" && form1.correo != "" && form1.contraseña != "" && celular1 != "" && celular2 > 9 && form1.celular == celular3) {
       this.authServ.registerUser(form)
@@ -53,9 +51,9 @@ export class RegisterComponent implements OnInit {
             minWidth: '50vw',
             width: 'auto',
           });
-        })
-    }
-  };
+        });
+    };
+  }
 
   openSession() {
     this.dialogRef.close();
@@ -70,5 +68,4 @@ export class RegisterComponent implements OnInit {
   closeWdw(): void {
     this.dialogRef.close();
   }
-
 }
