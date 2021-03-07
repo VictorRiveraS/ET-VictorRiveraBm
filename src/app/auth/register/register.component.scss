@@ -165,3 +165,27 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 14px !important;
+    }
+    h2 {
+        font-size: 12px !important;
+    }
+    h3 {
+        font-size: 11px !important;
+    }
+    a {
+        font-size: 12px !important;
+    }
+    div {
+        button {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 11px !important;
+            padding: 0% !important;
+        }
+    }
+}

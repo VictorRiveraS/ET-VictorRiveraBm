@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NewsSinSesionComponent } from './pages/news-sin-sesion/news-sin-sesion.component';
-import { NewsComponent } from './pages/news/news.component';
+import { NewsSinSesionComponent } from './components/news-sin-sesion/news-sin-sesion.component';
+import { NewsComponent } from './components/news/news.component';
 
 const routes: Routes = [{ path: 'home', component: NewsSinSesionComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

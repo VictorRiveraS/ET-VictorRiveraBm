@@ -54,11 +54,11 @@
     }
     button {
         height: 30px !important;
-        display: none !important;
+        display: flex !important;
         align-items: center !important;
         font-size: 11px !important;
         padding: 0% !important;
-        justify-content: center;
+        justify-content: center !important;
     }
 }
 
