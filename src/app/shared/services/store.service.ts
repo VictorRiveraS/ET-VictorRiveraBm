@@ -6,11 +6,11 @@ import { RegisterI } from '../interfaces/register.interface';
   providedIn: 'root'
 })
 export class StoreService {
-  private Usuarios = 'Usuarios Registrados';
+  private Storeusers = 'Usuarios Registrados';
 
   constructor (private angSt: AngularFirestore) { }
 
-  salvarDatos (user: RegisterI) {
-    return this.angSt.collection(this.Usuarios).add(user);
+  userSave (user: RegisterI) {
+    return this.angSt.collection(this.Storeusers).add(user);
   }
 }

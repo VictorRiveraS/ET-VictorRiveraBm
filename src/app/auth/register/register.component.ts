@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     if (form1.nombres !== '' && form1.primerApellido !== '' && form1.segundoApellido !== '' && form1.correo !== '' && form1.contraseña !== '' && celular1 !== '' && celular2 > 9 && form1.celular == celular3) {
       this.authServ.registerUser(form)
         .then(res => {
-          this.regServ.salvarDatos(this.register.value)
+          this.regServ.userSave(this.register.value)
           this.dialogRef.close();
           this.dialog.open(LoginComponent, {
             height: 'auto',

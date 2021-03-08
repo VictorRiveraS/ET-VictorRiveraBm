@@ -13,6 +13,13 @@ import { ResetComponent } from '../reset/reset.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public access: any;
+  public hide = true;
+  public minPw = 8;
+  public errorEmail: any;
+  public errorPassword: any;
+  public user$: any;
+
   constructor (public dialog: MatDialog,
     private dialogRef: MatDialogRef<LoginComponent>,
     private authServ: AuthService,
@@ -25,17 +32,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public access: any;
-  public hide = true;
-  public minPw = 8;
-  public errorEmail: any;
-  public errorPassword: any;
-
   login (form: UserI) {
     this.authServ.loginbyEmail(form)
       .then((res: any) => {
-        localStorage.setItem('email', this.access.get('email').value);
-        localStorage.setItem('password', this.access.get('password').value);
         this.dialogRef.close();
         this.route.navigate(['/news']);
       })

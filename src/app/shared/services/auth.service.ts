@@ -39,4 +39,8 @@ export class AuthService {
       .auth
       .sendPasswordResetEmail(email);
   }
+
+  getUserAuth () {
+    return this.afAuth.authState
+  }
 }

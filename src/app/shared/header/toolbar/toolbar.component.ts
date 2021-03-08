@@ -19,7 +19,9 @@ export class ToolbarComponent implements OnInit {
     private dialog: MatDialog) {}
 
   ngOnInit (): void {
-    this.email = localStorage.getItem('email');
+    this.authServ.getUserAuth().subscribe((data) => {
+      this.email = data?.email
+    })
   }
 
   openSession () {

@@ -17,7 +17,9 @@ export class ResponsiveButtonComponent implements OnInit {
     private dialogRef: MatDialogRef<ResponsiveButtonComponent>) { }
 
   ngOnInit (): void {
-    this.email = localStorage.getItem('email');
+    this.authServ.getUserAuth().subscribe((data) => {
+      this.email = data?.email
+    })
   }
 
   closeWdw (): void {
