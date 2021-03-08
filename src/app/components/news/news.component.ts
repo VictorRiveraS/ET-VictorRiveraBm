@@ -43,7 +43,7 @@ export class NewsComponent implements OnInit {
     { name: 'Latvia', id: 'lv' },
     { name: 'Lithuania', id: 'lt' },
     { name: 'Malaysia', id: 'my' },
-    { name: 'Mexico', id: 'mx' },
+    { name: 'México', id: 'mx' },
     { name: 'Morocco', id: 'ma' },
     { name: 'Netherlands', id: 'nl' },
     { name: 'New Zealand', id: 'nz' },
