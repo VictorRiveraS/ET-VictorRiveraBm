@@ -9,7 +9,7 @@
     </div>
     <h1 class="title-toolbar">Noticias</h1>
     <div class="login">
-        <div class="user" *ngIf="authServ.userData | async as user; else showLogin" (click)="onLogout()">
+        <div class="user" *ngIf="authServ.userData | async as user; else showLogin" (click)="openResponsive()">
             <a>
                 <p>{{email}}</p>
                 <mat-icon>account_circle</mat-icon>
