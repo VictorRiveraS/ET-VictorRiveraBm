@@ -73,7 +73,7 @@
                 Contraseña Requerido</mat-error>
         </mat-form-field>
         <div mat-dialog-actions>
-            <button type="submit" class="botonesVerdes" mat-button>Registrarse</button>
+            <button type="submit" class="botonesVerdes" mat-button [disabled]="register.invalid">Registrarse</button>
         </div>
     </form>
 </div>
