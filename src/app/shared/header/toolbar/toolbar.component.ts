@@ -45,7 +45,7 @@ export class ToolbarComponent implements OnInit {
   openResponsive () {
     this.dialog.open(ResponsiveButtonComponent, {
       height: '30vh',
-      width: '30vw',
+      width: '40vw',
       position: {
         top: '0px',
         right: '0px'
