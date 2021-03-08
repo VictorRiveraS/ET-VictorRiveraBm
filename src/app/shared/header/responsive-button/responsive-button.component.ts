@@ -6,25 +6,25 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-responsive-button',
   templateUrl: './responsive-button.component.html',
-  styleUrls: ['./responsive-button.component.scss'],
+  styleUrls: ['./responsive-button.component.scss']
 })
 export class ResponsiveButtonComponent implements OnInit {
   public email:any;
 
-  constructor(public authServ: AuthService,
+  constructor (public authServ: AuthService,
     private route: Router,
     private dialog: MatDialog,
     private dialogRef: MatDialogRef<ResponsiveButtonComponent>) { }
 
-  ngOnInit(): void {
-    this.email = localStorage.getItem("email");
+  ngOnInit (): void {
+    this.email = localStorage.getItem('email');
   }
 
-  closeWdw(): void {
+  closeWdw (): void {
     this.dialogRef.close();
   }
 
-  onLogout(): void {
+  onLogout (): void {
     this.authServ.logout();
     this.dialogRef.close();
     this.route.navigate(['']);

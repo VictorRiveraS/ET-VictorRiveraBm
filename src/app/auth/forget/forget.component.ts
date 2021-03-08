@@ -5,7 +5,7 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-forget',
   templateUrl: './forget.component.html',
-  styleUrls: ['./forget.component.scss'],
+  styleUrls: ['./forget.component.scss']
 })
 export class ForgetComponent implements OnInit {
   constructor (private dialog: MatDialog,

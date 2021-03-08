@@ -10,37 +10,36 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
   public hide = true;
   public minPw = 8;
   public minCel = 10;
   public register: any;
 
-  constructor(public dialog: MatDialog,
+  constructor (public dialog: MatDialog,
     private dialogRef: MatDialogRef<RegisterComponent>,
     private authServ: AuthService,
     private regServ: StoreService) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.register = new FormGroup({
       nombres: new FormControl('', [Validators.required]),
       primerApellido: new FormControl('', [Validators.required]),
       segundoApellido: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      celular: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(this.minCel)]),
+      celular: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(this.minCel)]),
       password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)])
     });
   }
 
-  registerUser(form: UserI, form1: RegisterI) {
-    let celular1: string = form1.celular.toString();
-    let celular2: number = celular1.length;
-    let celular3 = Number(form1.celular);
+  registerUser (form: UserI, form1: RegisterI) {
+    const celular1: string = form1.celular.toString();
+    const celular2: number = celular1.length;
+    const celular3 = Number(form1.celular);
 
-    if (form1.nombres != "" && form1.primerApellido != "" && form1.segundoApellido != "" && form1.correo != "" && form1.contraseña != "" && celular1 != "" && celular2 > 9 && form1.celular == celular3) {
+    if (form1.nombres !== '' && form1.primerApellido !== '' && form1.segundoApellido !== '' && form1.correo !== '' && form1.contraseña !== '' && celular1 !== '' && celular2 > 9 && form1.celular == celular3) {
       this.authServ.registerUser(form)
         .then(res => {
           this.regServ.salvarDatos(this.register.value)
@@ -49,23 +48,23 @@ export class RegisterComponent implements OnInit {
             height: 'auto',
             minHeight: '90vh',
             minWidth: '50vw',
-            width: 'auto',
+            width: 'auto'
           });
         });
     };
   }
 
-  openSession() {
+  openSession () {
     this.dialogRef.close();
     this.dialog.open(LoginComponent, {
       height: 'auto',
       minHeight: '90vh',
       minWidth: '50vw',
-      width: 'auto',
+      width: 'auto'
     });
   }
 
-  closeWdw(): void {
+  closeWdw (): void {
     this.dialogRef.close();
   }
 }

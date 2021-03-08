@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiNoticiasService } from 'src/app/shared/services/api-noticias.service';
 
-
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss'],
+  styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
   public articles = [];
@@ -71,7 +70,7 @@ export class NewsComponent implements OnInit {
     { name: 'Ukraine', id: 'ua' },
     { name: 'United Kingdom', id: 'gb' },
     { name: 'United States', id: 'us' },
-    { name: 'Venuzuela', id: 've' },
+    { name: 'Venuzuela', id: 've' }
   ];
 
   categories = [
@@ -82,12 +81,12 @@ export class NewsComponent implements OnInit {
     'technology'
   ];
 
-  constructor(private apiservice: ApiNoticiasService) { }
+  constructor (private apiservice: ApiNoticiasService) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.dataForm = new FormGroup({
       country: new FormControl('mx', [Validators.required]),
-      category: new FormControl('business', [Validators.required]),
+      category: new FormControl('business', [Validators.required])
     });
 
     this.apiservice.getNoti(this.country, this.category).subscribe((val: any) => {

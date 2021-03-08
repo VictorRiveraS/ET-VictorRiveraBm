@@ -10,16 +10,15 @@ import { ResetComponent } from '../reset/reset.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(public dialog: MatDialog,
+  constructor (public dialog: MatDialog,
     private dialogRef: MatDialogRef<LoginComponent>,
     private authServ: AuthService,
     private route: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.access = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(this.minPw)])
@@ -32,63 +31,61 @@ export class LoginComponent implements OnInit {
   public errorEmail: any;
   public errorPassword: any;
 
-  login(form: UserI) {
+  login (form: UserI) {
     this.authServ.loginbyEmail(form)
       .then((res: any) => {
         localStorage.setItem('email', this.access.get('email').value);
         localStorage.setItem('password', this.access.get('password').value);
         this.dialogRef.close();
-        this.route.navigate(["/news"]);
+        this.route.navigate(['/news']);
       })
       .catch((err: { code: string; }) => {
-        let errores: string = err.code
+        const errores: string = err.code
         switch (errores) {
-          case "auth/invalid-email":
-            this.errorEmail = "Correo Invalido";
+          case 'auth/invalid-email':
+            this.errorEmail = 'Correo Invalido';
             break;
 
-          case "auth/wrong-password":
-            this.errorPassword = "Contraseña Equivocada";
+          case 'auth/wrong-password':
+            this.errorPassword = 'Contraseña Equivocada';
             break;
 
-          case "auth/user-not-found":
-            this.errorEmail = "Usuario Invalido";
+          case 'auth/user-not-found':
+            this.errorEmail = 'Usuario Invalido';
             break;
 
-          case "auth/too-many-requests":
-            this.errorEmail = "Muchos intentos con este Usuario";
+          case 'auth/too-many-requests':
+            this.errorEmail = 'Muchos intentos con este Usuario';
             break;
 
           default:
-            this.errorEmail = "Error";
+            this.errorEmail = 'Error';
             break;
         }
       });
   }
 
-  openRegister() { 
+  openRegister () {
     this.dialogRef.close();
     this.dialog.open(RegisterComponent, {
       height: 'auto',
-      minHeight: '10vh', 
+      minHeight: '10vh',
       minWidth: '50vw',
-      width: 'auto',
+      width: 'auto'
     });
   }
 
-  openReset() {
+  openReset () {
     this.dialogRef.close();
     this.dialog.open(ResetComponent, {
       height: 'auto',
       minWidth: '70vw',
       minHeight: '50vh',
-      width: 'auto',
+      width: 'auto'
     });
   }
 
-  closeWdw(): void {
+  closeWdw (): void {
     this.dialogRef.close();
   }
-  
 }
-

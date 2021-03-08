@@ -9,6 +9,6 @@ const routes: Routes = [{ path: 'home', component: NewsSinSesionComponent },
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

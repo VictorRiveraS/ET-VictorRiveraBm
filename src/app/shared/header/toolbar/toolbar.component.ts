@@ -8,7 +8,7 @@ import { ResponsiveButtonComponent } from '../responsive-button/responsive-butto
 
 @Component({
   selector: 'app-toolbar',
-  templateUrl: './toolbar.component.html', 
+  templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
@@ -47,7 +47,8 @@ export class ToolbarComponent implements OnInit {
       position: {
         top: '0px',
         right: '0px'
-      }});
+      }
+    });
   }
 
   onLogout (): void {

@@ -9,23 +9,23 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
-  styleUrls: ['./reset.component.scss'],
+  styleUrls: ['./reset.component.scss']
 })
 export class ResetComponent implements OnInit {
   public reset: any;
   public errorEmail: any;
-  
-  constructor(public dialog: MatDialog,
+
+  constructor (public dialog: MatDialog,
     private dialogRef: MatDialogRef<ResetComponent>,
     private authServ: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.reset = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required])
     });
   }
 
-  resetPassword(form: UserI) {
+  resetPassword (form: UserI) {
     this.authServ.resetPassword(form)
       .then(res => {
         this.dialogRef.close();
@@ -33,42 +33,42 @@ export class ResetComponent implements OnInit {
           height: 'auto',
           minHeight: '70vh',
           minWidth: '50vw',
-          width: 'auto',
+          width: 'auto'
         });
       })
       .catch(err => {
-        let errores: string = err.code
+        const errores: string = err.code
         switch (errores) {
-          case "auth/invalid-email":
-            this.errorEmail = "Correo Invalido";
+          case 'auth/invalid-email':
+            this.errorEmail = 'Correo Invalido';
             break;
 
-          case "auth/user-not-found":
-            this.errorEmail = "Usuario Invalido";
+          case 'auth/user-not-found':
+            this.errorEmail = 'Usuario Invalido';
             break;
 
-          case "auth/too-many-requests":
-            this.errorEmail = "Muchos intentos con este Usuario";
+          case 'auth/too-many-requests':
+            this.errorEmail = 'Muchos intentos con este Usuario';
             break;
 
           default:
-            this.errorEmail = "Error";
+            this.errorEmail = 'Error';
             break;
         }
       });
   }
 
-  openSession() {
+  openSession () {
     this.dialogRef.close();
     this.dialog.open(LoginComponent, {
       height: 'auto',
       minHeight: '90vh',
       minWidth: '50vw',
-      width: 'auto',
+      width: 'auto'
     });
   }
 
-  closeWdw(): void {
+  closeWdw (): void {
     this.dialogRef.close();
   }
 }
